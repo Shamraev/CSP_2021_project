@@ -8,6 +8,7 @@
 #include "qcustomplot.h"
 #include "blocks/gain/gain.h"
 #include "blocks/integrator/integrator.h"
+#include "blocks/generator/generator.h"
 
 namespace Ui {
 class Widget;
@@ -43,6 +44,7 @@ private:
     // --------------------------
     gain *object;   // <=
     integrator *int1;
+    generator *gentr;
     // --------------------------
     // Add pointer to the object here
     // --------------------------

@@ -7,7 +7,7 @@ using namespace std;
 // --------------------------
 // Set stop time here
 // --------------------------
-#define ENDOFTIME 25
+#define ENDOFTIME 25*2
 #define SAMPLINGTIMEMSEC 10
 // --------------------------
 // Set stop time here
@@ -74,6 +74,7 @@ Widget::Widget(QWidget *parent) :
     // --------------------------
     object = new gain(2.0);
     int1 = new integrator(-1);
+    gentr = new generator();
     // --------------------------
     // Create the object here
     // --------------------------
@@ -104,6 +105,7 @@ Widget::~Widget()
     // --------------------------
     delete object;
     delete int1;
+    delete gentr;
     // --------------------------
     // Delete the object here
     // --------------------------
@@ -141,7 +143,7 @@ void Widget::update() {
 	inputPlot->graph(0)->addData(relativeTime / 1000.0, signal);
     // Old object plotting: delete
     //outputPlot->graph(0)->addData(relativeTime / 1000.0, object->update(signal));
-    outputPlot->graph(0)->addData(relativeTime / 1000.0, int1->update(signal,dt/1000.0));
+    outputPlot->graph(0)->addData(relativeTime / 1000.0, gentr->update(dt/1000.0));
 
     inputPlot->replot();
     outputPlot->replot();
