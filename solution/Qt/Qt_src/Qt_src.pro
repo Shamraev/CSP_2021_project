@@ -24,6 +24,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 
 SOURCES += \
+    blocks/generator/generator.cpp \
     blocks/integrator/integrator.cpp \
         main.cpp \
         widget.cpp \
@@ -31,6 +32,7 @@ SOURCES += \
     blocks/gain/gain.cpp
 
 HEADERS += \
+    blocks/generator/generator.h \
     blocks/integrator/integrator.h \
         widget.h \
     main.h \

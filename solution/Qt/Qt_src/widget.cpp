@@ -73,7 +73,7 @@ Widget::Widget(QWidget *parent) :
     // Create the object here
     // --------------------------
     object = new gain(2.0);
-    int1 = new integrator(0.0);
+    int1 = new integrator(-1);
     // --------------------------
     // Create the object here
     // --------------------------
@@ -114,7 +114,7 @@ void Widget::update() {
 	// --------------------------
 	// Replace input signal with ours
 	// --------------------------
-	double signal = std::sin(relativeTime / 1000.0);
+    double signal = std::cos(0.1*relativeTime / 1000.0 + 1)*3;
 	// --------------------------
 	// Replace input signal with ours
 	// --------------------------
@@ -141,7 +141,7 @@ void Widget::update() {
 	inputPlot->graph(0)->addData(relativeTime / 1000.0, signal);
     // Old object plotting: delete
     //outputPlot->graph(0)->addData(relativeTime / 1000.0, object->update(signal));
-    outputPlot->graph(0)->addData(relativeTime / 1000.0, int1->update(2,dt/1000.0));
+    outputPlot->graph(0)->addData(relativeTime / 1000.0, int1->update(signal,dt/1000.0));
 
     inputPlot->replot();
     outputPlot->replot();

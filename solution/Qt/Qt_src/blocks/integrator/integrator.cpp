@@ -14,5 +14,6 @@ float integrator::getY_prevValue() const {
 float integrator::update(float u, float dt){
     float y = y_prev + (u + u_prev)*dt/2;
     y_prev = y;
+    u_prev = u;
     return y;
 }
