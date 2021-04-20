@@ -72,9 +72,10 @@ Widget::Widget(QWidget *parent) :
     // --------------------------
     // Create the object here
     // --------------------------
-    object = new gain(2.0);
-    int1 = new integrator(-1);
-    gentr = new generator();
+    _object = new gain(2.0);
+    _int1 = new integrator(-1);
+    _generator = new generator();
+    _model = new model();
     // --------------------------
     // Create the object here
     // --------------------------
@@ -103,9 +104,10 @@ Widget::~Widget()
     // --------------------------
     // Delete the object here
     // --------------------------
-    delete object;
-    delete int1;
-    delete gentr;
+    delete _object;
+    delete _int1;
+    delete _generator;
+    delete _model;
     // --------------------------
     // Delete the object here
     // --------------------------
@@ -116,7 +118,7 @@ void Widget::update() {
 	// --------------------------
 	// Replace input signal with ours
 	// --------------------------
-    double signal = std::cos(0.1*relativeTime / 1000.0 + 1)*3;
+    double signal = _generator->update(dt/1000.0);
 	// --------------------------
 	// Replace input signal with ours
 	// --------------------------
@@ -135,15 +137,12 @@ void Widget::update() {
 		dt = relativeTime;
 		relativeTime = QDateTime::currentMSecsSinceEpoch() - startTime;
 		dt = relativeTime - dt;
-        //--
-        cout << dt << "\n";
-        //--
 	}
 
 	inputPlot->graph(0)->addData(relativeTime / 1000.0, signal);
     // Old object plotting: delete
     //outputPlot->graph(0)->addData(relativeTime / 1000.0, object->update(signal));
-    outputPlot->graph(0)->addData(relativeTime / 1000.0, gentr->update(dt/1000.0));
+    outputPlot->graph(0)->addData(relativeTime / 1000.0, _model->update(signal, dt/1000.0));
 
     inputPlot->replot();
     outputPlot->replot();
@@ -151,7 +150,7 @@ void Widget::update() {
     // --------------------------
     // Update the object here
     // --------------------------
-    object->update(signal);
+    _object->update(signal);
     //int1->update(2, 0.1);//--
     // --------------------------
     // Update the object here

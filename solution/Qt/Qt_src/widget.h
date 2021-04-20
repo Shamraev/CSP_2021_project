@@ -9,6 +9,7 @@
 #include "blocks/gain/gain.h"
 #include "blocks/integrator/integrator.h"
 #include "blocks/generator/generator.h"
+#include "blocks/model/model.h"
 
 namespace Ui {
 class Widget;
@@ -42,9 +43,10 @@ private:
     // --------------------------
     // Add pointer to the object here
     // --------------------------
-    gain *object;   // <=
-    integrator *int1;
-    generator *gentr;
+    gain *_object;   // <=
+    integrator *_int1;
+    generator *_generator;
+    model *_model;
     // --------------------------
     // Add pointer to the object here
     // --------------------------

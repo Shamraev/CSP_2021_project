@@ -14,6 +14,11 @@ generator::~generator(){
     delete gain1;
 }
 float generator::update(float dt){
-    u = int2->update(int1->update(gain1->update(u), dt), dt);
+    float int1_v = int1->getY_prevValue();
+    float int2_v = int2->getY_prevValue();
+
+    int1->update(gain1->update(int2_v), dt);
+    int2->update(int1_v, dt);
+    u = int2_v; // на текущем такте
     return u;
 }

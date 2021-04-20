@@ -26,6 +26,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
     blocks/generator/generator.cpp \
     blocks/integrator/integrator.cpp \
+    blocks/model/model.cpp \
         main.cpp \
         widget.cpp \
     qcustomplot.cpp \
@@ -34,6 +35,7 @@ SOURCES += \
 HEADERS += \
     blocks/generator/generator.h \
     blocks/integrator/integrator.h \
+    blocks/model/model.h \
         widget.h \
     main.h \
     qcustomplot.h \
