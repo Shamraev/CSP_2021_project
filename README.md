@@ -5,5 +5,5 @@
 В папке 'solution\Qt\Qt_src' ноходятся исходники в Qt Creator (среда близкая к симуляции работы МК). \
 Отчет делается по ссылке [20.04.2021]: https://docs.google.com/document/d/1ZN-TGgPqDpFwOiY1Opg-XCvIx1ZgOiNofcdMYTR4LIc/edit \
 
-Для выбора режима моделирования системы (непрерывной или дискретных 5гц, 25Гц, 100Гц) в Qt выбрать {CONTINUOUS, MODELD5HZ, MODELD25HZ, MODELD100HZ}. Например: \
+Для выбора режима моделирования системы (непрерывной или дискретных 5гц, 25Гц, 100Гц) в Qt в файле '\solution\Qt\Qt_src\widget.cpp' задать modelType из {CONTINUOUS, MODELD5HZ, MODELD25HZ, MODELD100HZ}. Например: \
 modelType = MODELD100HZ
