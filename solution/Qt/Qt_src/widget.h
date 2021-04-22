@@ -10,6 +10,7 @@
 #include "blocks/integrator/integrator.h"
 #include "blocks/generator/generator.h"
 #include "blocks/model/model.h"
+#include "blocks/modelD/modeld.h"
 
 namespace Ui {
 class Widget;
@@ -47,6 +48,9 @@ private:
     integrator *_int1;
     generator *_generator;
     model *_model;
+    modelD *_modelD5Hz;
+    modelD *_modelD25Hz;
+    modelD *_modelD100Hz;
     // --------------------------
     // Add pointer to the object here
     // --------------------------

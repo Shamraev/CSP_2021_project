@@ -27,6 +27,7 @@ SOURCES += \
     blocks/generator/generator.cpp \
     blocks/integrator/integrator.cpp \
     blocks/model/model.cpp \
+    blocks/modelD/modeld.cpp \
         main.cpp \
         widget.cpp \
     qcustomplot.cpp \
@@ -36,6 +37,7 @@ HEADERS += \
     blocks/generator/generator.h \
     blocks/integrator/integrator.h \
     blocks/model/model.h \
+    blocks/modelD/modeld.h \
         widget.h \
     main.h \
     qcustomplot.h \
