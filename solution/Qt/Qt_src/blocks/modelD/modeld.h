@@ -7,6 +7,7 @@ class modelD
 private:
     float _x[SIZE_X];
     float _y;
+    float _prev_u;
     float _A[SIZE_X][SIZE_X];
     float _B[SIZE_X];
     float _C[SIZE_X];
